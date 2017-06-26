@@ -18,7 +18,6 @@ Task("PatchVersion")
             Information("Pull request build. Skipping version patching.");
             return;
         }
-        Information("Version: " + packageVersion);        
         var versionSuffix = "";
         if (currentBranch != "master") {
             if (buildNumber != null) {
@@ -30,6 +29,7 @@ Task("PatchVersion")
             }
             packageVersion += versionSuffix;
         }
+        Information("Version: " + packageVersion);        
 
         foreach(var proj in GetFiles("src/**/*.csproj")) 
         {
