@@ -16,7 +16,7 @@ if (currentBranch != "master") {
     }
     versionSuffix += "-" + currentBranch;
     if (versionSuffix.Length > 20) {
-        versionSuffix = versionSuffix.Substring(0, 20)
+        versionSuffix = versionSuffix.Substring(0, 20);
     }
     packageVersion += versionSuffix;
 }
