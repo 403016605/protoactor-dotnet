@@ -15,7 +15,7 @@ Task("PatchVersion")
     {
         if (isPullRequestBuild)
         {
-            Information("Pull request build. Skipping version patching.")
+            Information("Pull request build. Skipping version patching.");
             return;
         }
         Information("Version: " + packageVersion);        
@@ -71,7 +71,7 @@ Task("Pack")
     {
         if (isPullRequestBuild)
         {
-            Information("Pull request build. Skipping NuGet packing.")
+            Information("Pull request build. Skipping NuGet packing.");
             return;
         }
         foreach(var proj in GetFiles("src/**/*.csproj")) 
@@ -90,7 +90,7 @@ Task("Push")
     {
         if (isPullRequestBuild)
         {
-            Information("Pull request build. Skipping NuGet push.")
+            Information("Pull request build. Skipping NuGet push.");
             return;
         }
         var nuGetPushSettings = new NuGetPushSettings 
