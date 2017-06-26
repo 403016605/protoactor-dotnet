@@ -10,6 +10,16 @@ var buildNumber = Argument<string>("buildNumber", null);
 var configuration = "Release";
 var isPullRequestBuild = EnvironmentVariable("APPVEYOR_PULL_REQUEST_TITLE") != null;
 
+Information("Environment");
+foreach(var envVar in EnvironmentVariables())
+{
+    Information(
+        "Key: {0}\tValue: \"{1}\"",
+        envVar.Key,
+        envVar.Value
+        );
+}
+
 Task("PatchVersion")
     .Does(() => 
     {
