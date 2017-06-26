@@ -15,15 +15,16 @@ before_build:
 - nuget install Cake -ExcludeVersion
 
 build_script:
-- .\Cake\Cake.exe --target=PatchVersion
+- .\Cake\Cake.exe --target=PrintEnvironment
+- .\Cake\Cake.exe --target=PatchVersion --buildNumber=%APPVEYOR_BUILD_NUMBER% --currentBranch=%APPVEYOR_REPO_BRANCH%
 - .\Cake\Cake.exe --target=Restore
-- .\Cake\Cake.exe --target=Build --buildNumber=%APPVEYOR_BUILD_NUMBER% --currentBranch=%APPVEYOR_REPO_BRANCH%
+- .\Cake\Cake.exe --target=Build
 
 test_script:
 - .\Cake\Cake.exe --target=UnitTest
 
 after_test:
-- .\Cake\Cake.exe --target=Pack --buildNumber=%APPVEYOR_BUILD_NUMBER% --currentBranch=%APPVEYOR_REPO_BRANCH%
+- .\Cake\Cake.exe --target=Pack
 
 artifacts:
 - path: out\*
