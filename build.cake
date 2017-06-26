@@ -11,7 +11,7 @@ var configuration = "Release";
 var isPullRequestBuild = EnvironmentVariable("APPVEYOR_PULL_REQUEST_TITLE") != null;
 
 Task("PrintEnvironment")
-    .Does(() +>
+    .Does(() =>
     {
         foreach(var envVar in EnvironmentVariables())
         {
